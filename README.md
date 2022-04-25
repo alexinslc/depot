@@ -11,6 +11,7 @@ Current Page: 92
  ### Other Info 
 
 * Use `bin/dev` to run the application locally. (Not `rails s`)
+* Use `bin/rails dbconsole` to access the SQLite database.
 
 * Ruby version - 3.1.1
 * Rails version - 7.0.2.3

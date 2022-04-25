@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 
-  validates :title, :description, :image_url, presence: true
+  validates :title, :description, :image_url, presence: { message: 'cannot be blank' }
   validates :title, uniqueness: true, length: { minimum: 10 }
   validates :image_url, allow_blank: true, format: {
     with: %r{\.(gif|jpg|png)\Z}i,

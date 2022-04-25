@@ -12,6 +12,9 @@ Current Page: 92
 
 * Use `bin/dev` to run the application locally. (Not `rails s`)
 * Use `bin/rails dbconsole` to access the SQLite database.
+* Use `bin/rails test` to run the tests.
+* Use `bin/rails test:models` to run the tests for the models. 
+* Use `bin/rails db:test:prepare` to prepare the database for testing. (usually done automatically)
 
 * Ruby version - 3.1.1
 * Rails version - 7.0.2.3

@@ -1,0 +1,7 @@
+#################################
+##GLOBAL##
+# This works as a catch-all for things that arent explicitly called out with codeowners
+# These owners will be the default owners for everything in the repo. 
+# Later matches take precedence - so consider where to place a codeowner as granularity increases:
+#################################
+*       @alexinslc

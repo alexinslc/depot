@@ -127,7 +127,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.5)
     msgpack (1.7.2)
-    net-imap (0.4.16)
+    net-imap (0.4.19)
       date
       net-protocol
     net-pop (0.1.2)
@@ -225,7 +225,7 @@ GEM
     tailwindcss-ruby (3.4.17-arm64-darwin)
     tailwindcss-ruby (3.4.17-x86_64-linux)
     thor (1.3.2)
-    timeout (0.4.1)
+    timeout (0.4.3)
     turbo-rails (2.0.10)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)

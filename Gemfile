@@ -79,9 +79,9 @@ group :development do
   gem "bundler-audit", require: false
 
   # Performance monitoring and profiling
-  gem "rack-mini-profiler"
   gem "bullet"
   gem "memory_profiler"
+  gem "rack-mini-profiler"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

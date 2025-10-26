@@ -8,6 +8,7 @@ AllCops:
   Exclude:
     - 'bin/**/*'
     - 'db/schema.rb'
+    - 'db/queue_schema.rb'
     - 'db/migrate/**/*'
     - 'node_modules/**/*'
     - 'tmp/**/*'

@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
-puts "🌱 Seeding database..."
+Rails.logger.debug "🌱 Seeding database..."
 
 # Clear existing data
-puts "  Clearing existing data..."
+Rails.logger.debug "  Clearing existing data..."
 Product.destroy_all
 User.destroy_all
 
 # Create admin user
-puts "  Creating admin user..."
+Rails.logger.debug "  Creating admin user..."
 admin = User.create!(
   email_address: "admin@depot.com",
   password: "password",
   password_confirmation: "password"
 )
-puts "    ✓ Admin user created: #{admin.email_address}"
+Rails.logger.debug { "    ✓ Admin user created: #{admin.email_address}" }
 
 # Create sample products
-puts "  Creating products..."
+Rails.logger.debug "  Creating products..."
 
 products_data = [
   {
@@ -54,12 +54,12 @@ products_data = [
 
 products_data.each do |product_data|
   product = Product.create!(product_data)
-  puts "    ✓ Created: #{product.title} ($#{product.price})"
+  Rails.logger.debug { "    ✓ Created: #{product.title} ($#{product.price})" }
 end
 
-puts "\n✅ Database seeded successfully!"
-puts "   Products: #{Product.count}"
-puts "   Users: #{User.count}"
-puts "\n📧 Admin credentials:"
-puts "   Email: admin@depot.com"
-puts "   Password: password"
+Rails.logger.debug "\n✅ Database seeded successfully!"
+Rails.logger.debug { "   Products: #{Product.count}" }
+Rails.logger.debug { "   Users: #{User.count}" }
+Rails.logger.debug "\n📧 Admin credentials:"
+Rails.logger.debug "   Email: admin@depot.com"
+Rails.logger.debug "   Password: password"

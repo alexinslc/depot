@@ -33,7 +33,7 @@ class HealthController < ApplicationController
   end
 
   def migrations_check
-    pending = ActiveRecord::Migration.check_all_pending!
+    ActiveRecord::Migration.check_all_pending!
     { status: "ok", message: "No pending migrations" }
   rescue ActiveRecord::PendingMigrationError => e
     { status: "error", message: "Pending migrations: #{e.message}" }

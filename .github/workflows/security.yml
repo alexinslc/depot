@@ -1,0 +1,59 @@
+name: Security
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run weekly on Monday at 00:00 UTC
+    - cron: '0 0 * * 1'
+
+jobs:
+  brakeman:
+    name: Brakeman Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3.6
+        bundler-cache: true
+        
+    - name: Run Brakeman
+      run: |
+        bundle exec brakeman --format json --output tmp/brakeman.json --no-pager || true
+        bundle exec brakeman --format sarif --output tmp/brakeman.sarif --no-pager || true
+        
+    - name: Upload Brakeman SARIF
+      if: always()
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: tmp/brakeman.sarif
+        category: brakeman
+        
+    - name: Check Brakeman Results
+      run: |
+        bundle exec brakeman --no-pager
+        
+  bundler-audit:
+    name: Bundler Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3.6
+        bundler-cache: true
+        
+    - name: Run bundler-audit
+      run: |
+        bundle exec bundler-audit check --update

@@ -65,6 +65,10 @@ group :development do
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
 
+  # Security scanning
+  gem "brakeman", require: false
+  gem "bundler-audit", require: false
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 

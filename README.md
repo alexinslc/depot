@@ -1,5 +1,7 @@
 # Depot
 
+[![Testing](https://github.com/alexinslc/depot/actions/workflows/test.yml/badge.svg)](https://github.com/alexinslc/depot/actions/workflows/test.yml)
+
 * This is my repo for the `depot` application from [Agile Web Development with Rails 7](https://pragprog.com/titles/rails7/agile-web-development-with-rails-7/) by Sam Ruby.
 
 PDF Page: 121

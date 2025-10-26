@@ -35,3 +35,9 @@ production:
     <<: *default
     database: db/queue_production.sqlite3
     migrations_paths: db/queue_migrate
+
+# Solid Cache database configuration
+cache:
+  <<: *default
+  database: db/cache_production.sqlite3
+  migrations_paths: db/cache_migrate

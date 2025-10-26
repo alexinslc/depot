@@ -262,6 +262,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    solid_cache (1.0.8)
+      activejob (>= 7.2)
+      activerecord (>= 7.2)
+      railties (>= 7.2)
     solid_queue (1.2.2)
       activejob (>= 7.1)
       activerecord (>= 7.1)
@@ -341,6 +345,7 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   selenium-webdriver
+  solid_cache
   solid_queue
   sprockets-rails
   sqlite3 (~> 2.6)

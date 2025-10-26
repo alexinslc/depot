@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  allow_unauthenticated_access
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products or /products.json

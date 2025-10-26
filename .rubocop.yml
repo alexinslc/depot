@@ -51,3 +51,10 @@ Style/SymbolArray:
 
 Style/WordArray:
   EnforcedStyle: brackets
+
+# Disable cops that are not critical for this demo app
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false

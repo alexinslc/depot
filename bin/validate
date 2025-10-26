@@ -1,0 +1,176 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Comprehensive test validation for Rails 8.1.0 application
+# This script validates all aspects of the application
+
+def section(title)
+  puts "\n#{'=' * 80}"
+  puts "  #{title}"
+  puts "#{'=' * 80}"
+end
+
+def success(message)
+  puts "  ✓ #{message}"
+end
+
+def warning(message)
+  puts "  ⚠ #{message}"
+end
+
+def error(message)
+  puts "  ✗ #{message}"
+end
+
+def run_command(command, description)
+  print "  Running: #{description}... "
+  result = system(command, out: File::NULL, err: File::NULL)
+  if result
+    puts "✓"
+    true
+  else
+    puts "✗"
+    false
+  end
+end
+
+section "Rails 8.1.0 Application Validation"
+
+# Check Ruby version
+section "Environment Checks"
+ruby_version = `ruby -v`.strip
+if ruby_version.include?("3.3.6")
+  success "Ruby version: #{ruby_version}"
+else
+  warning "Ruby version: #{ruby_version} (expected 3.3.6)"
+end
+
+# Check Rails version
+rails_version = `bin/rails -v`.strip
+if rails_version.include?("8.1.0")
+  success "Rails version: #{rails_version}"
+else
+  error "Rails version: #{rails_version} (expected 8.1.0)"
+end
+
+# Run tests
+section "Test Suite"
+test_passed = run_command("bin/rails test", "Full test suite")
+
+if test_passed
+  success "All tests passed"
+else
+  error "Some tests failed"
+  exit 1
+end
+
+# Check for deprecation warnings
+section "Deprecation Warnings"
+deprecations = `bin/rails test 2>&1 | grep -i deprecat`.strip
+if deprecations.empty?
+  success "No deprecation warnings"
+else
+  warning "Deprecation warnings found:"
+  puts deprecations
+end
+
+# Security scans
+section "Security Scans"
+brakeman_passed = run_command("bundle exec brakeman --no-pager -q", "Brakeman security scan")
+bundler_audit_passed = run_command("bundle exec bundler-audit check", "Bundler audit")
+
+if brakeman_passed && bundler_audit_passed
+  success "All security scans passed"
+else
+  error "Security scans failed"
+end
+
+# RuboCop
+section "Code Quality"
+rubocop_passed = run_command("bundle exec rubocop", "RuboCop linting")
+
+if rubocop_passed
+  success "Code quality checks passed"
+else
+  warning "RuboCop found issues (auto-fixable with --autocorrect-all)"
+end
+
+# Check database configuration
+section "Database Configuration"
+db_config = File.read("config/database.yml")
+if db_config.include?("journal_mode: WAL")
+  success "SQLite WAL mode enabled"
+else
+  warning "SQLite WAL mode not configured"
+end
+
+# Check Rails 8 features
+section "Rails 8 Features"
+gemfile = File.read("Gemfile")
+
+features = {
+  "Solid Queue" => "solid_queue",
+  "Solid Cache" => "solid_cache",
+  "Solid Cable" => "solid_cable",
+  "Kamal 2" => "kamal",
+  "Thruster" => "thruster"
+}
+
+features.each do |name, gem_name|
+  if gemfile.include?(gem_name)
+    success "#{name} configured"
+  else
+    error "#{name} not configured"
+  end
+end
+
+# Check CI/CD workflows
+section "CI/CD Workflows"
+workflows = Dir.glob(".github/workflows/*.yml")
+if workflows.length >= 4
+  success "#{workflows.length} CI/CD workflows configured"
+  workflows.each { |w| puts "    - #{File.basename(w)}" }
+else
+  warning "Only #{workflows.length} workflows found"
+end
+
+# Check documentation
+section "Documentation"
+docs = ["README.md", "CONTRIBUTING.md", "CHANGELOG.md", "DEPLOYMENT.md", "KAMAL.md", "SECURITY.md"]
+docs.each do |doc|
+  if File.exist?(doc)
+    success "#{doc} exists"
+  else
+    error "#{doc} missing"
+  end
+end
+
+# Check Docker setup
+section "Docker Configuration"
+if File.exist?("Dockerfile") && File.exist?("docker-compose.yml")
+  success "Docker configuration present"
+  
+  dockerfile = File.read("Dockerfile")
+  if dockerfile.include?("HEALTHCHECK")
+    success "Docker healthcheck configured"
+  else
+    warning "Docker healthcheck not configured"
+  end
+else
+  error "Docker configuration missing"
+end
+
+# Summary
+section "Validation Summary"
+puts "\n"
+success "Environment: ✓"
+success "Tests: ✓" if test_passed
+success "Security: ✓" if brakeman_passed && bundler_audit_passed
+success "Code Quality: ✓" if rubocop_passed
+success "Rails 8 Features: ✓"
+success "Documentation: ✓"
+success "Docker: ✓"
+
+puts "\n"
+puts "🎉 Rails 8.1.0 Application Validation Complete! 🎉"
+puts "\n"

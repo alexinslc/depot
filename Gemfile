@@ -42,6 +42,12 @@ gem "solid_cache"
 # Use Solid Cable for database-backed Action Cable [https://github.com/rails/solid_cable]
 gem "solid_cable"
 
+# Use Kamal 2 for zero-downtime deployments [https://kamal-deploy.org]
+gem "kamal", require: false
+
+# Use Thruster for HTTP/2 proxy and asset serving [https://github.com/basecamp/thruster]
+gem "thruster", require: false
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

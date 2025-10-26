@@ -18,4 +18,4 @@ Book Page: 105
 * Use `bin/rails db:test:prepare` to prepare the database for testing. (usually done automatically)
 
 * Ruby version - 3.3.6
-* Rails version - 7.2.2.1
+* Rails version - 8.1.0

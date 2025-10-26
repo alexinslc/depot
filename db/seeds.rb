@@ -1,59 +1,65 @@
-#---
-# Excerpted from "Agile Web Development with Rails 7",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material,
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose.
-# Visit https://pragprog.com/titles/rails7 for more book information.
-#---
-# encoding: utf-8
+# frozen_string_literal: true
 
-Product.delete_all
-Product.create!(title: "Docker for Rails Developers",
-                description:
-    %(<p>
-      <em>Build, Ship, and Run Your Applications Everywhere</em> Docker does
-      for DevOps what Rails did for web development—it gives you a new set
-      of superpowers. Gone are “works on my machine” woes and lengthy setup
-      tasks, replaced instead by a simple, consistent, Docker-based
-      development environment that will have your team up and running in
-      seconds.  Gain hands-on, real-world experience with a tool that’s
-      rapidly becoming fundamental to software development. Go from zero all
-      the way to production as Docker transforms the massive leap of
-      deploying your app in the cloud into a baby step.
-      </p>),
-                image_url: "ridocker.jpg",
-                price: 19.95)
-# . . .
-Product.create!(title: "Design and Build Great Web APIs",
-                description:
-    %(<p>
-      <em>Robust, Reliable, and Resilient</em>
-      APIs are transforming the business world at an increasing pace. Gain
-      the essential skills needed to quickly design, build, and deploy
-      quality web APIs that are robust, reliable, and resilient. Go from
-      initial design through prototyping and implementation to deployment of
-      mission-critical APIs for your organization. Test, secure, and deploy
-      your API with confidence and avoid the “release into production”
-      panic. Tackle just about any API challenge with more than a dozen
-      open-source utilities and common programming patterns you can apply
-      right away.
-      </p>),
-                image_url: "maapis.jpg",
-                price: 24.95)
-# . . .
-Product.create!(title: "Modern CSS with Tailwind",
-                description:
-    %(<p>
-      <em>Flexible Styling Without the Fuss</em>
-      Tailwind CSS is an exciting new CSS framework that allows you to
-      design your site by composing simple utility classes to create complex
-      effects. With Tailwind, you can style your text, move your items on
-      the page, design complex page layouts, and adapt your design for
-      devices from a phone to a wide-screen monitor. With this book, you’ll
-      learn how to use the Tailwind for its flexibility and its consistency,
-      from the smallest detail of your typography to the entire design of
-      your site.
-      </p>),
-                image_url: "tailwind.jpg",
-                price: 18.95)
+puts "🌱 Seeding database..."
+
+# Clear existing data
+puts "  Clearing existing data..."
+Product.destroy_all
+User.destroy_all
+
+# Create admin user
+puts "  Creating admin user..."
+admin = User.create!(
+  email_address: "admin@depot.com",
+  password: "password",
+  password_confirmation: "password"
+)
+puts "    ✓ Admin user created: #{admin.email_address}"
+
+# Create sample products
+puts "  Creating products..."
+
+products_data = [
+  {
+    title: "Docker for Rails Developers",
+    description: %(<p><em>Build, Ship, and Run Your Applications Everywhere</em> Docker does for DevOps what Rails did for web development.</p>),
+    image_url: "ridocker.jpg",
+    price: 19.95
+  },
+  {
+    title: "Design and Build Great Web APIs",
+    description: %(<p><em>Robust, Reliable, and Resilient</em> APIs are transforming the business world at an increasing pace.</p>),
+    image_url: "maapis.jpg",
+    price: 24.95
+  },
+  {
+    title: "Modern CSS with Tailwind",
+    description: %(<p><em>Flexible Styling Without the Fuss</em> Tailwind CSS is an exciting new CSS framework.</p>),
+    image_url: "tailwind.jpg",
+    price: 18.95
+  },
+  {
+    title: "Programming Phoenix",
+    description: %(<p><em>Productive, Reliable, Fast</em> Phoenix creator Chris McCord walks you through building fast applications.</p>),
+    image_url: "phoenix.jpg",
+    price: 35.00
+  },
+  {
+    title: "Agile Web Development with Rails 8",
+    description: %(<p><em>Learn Rails the Right Way</em> Rails 8 completely redefines what it means to produce fantastic user experiences.</p>),
+    image_url: "rails8.jpg",
+    price: 45.00
+  }
+]
+
+products_data.each do |product_data|
+  product = Product.create!(product_data)
+  puts "    ✓ Created: #{product.title} ($#{product.price})"
+end
+
+puts "\n✅ Database seeded successfully!"
+puts "   Products: #{Product.count}"
+puts "   Users: #{User.count}"
+puts "\n📧 Admin credentials:"
+puts "   Email: admin@depot.com"
+puts "   Password: password"

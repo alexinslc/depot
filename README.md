@@ -3,6 +3,7 @@
 [![Testing](https://github.com/alexinslc/depot/actions/workflows/test.yml/badge.svg)](https://github.com/alexinslc/depot/actions/workflows/test.yml)
 [![Linting](https://github.com/alexinslc/depot/actions/workflows/lint.yml/badge.svg)](https://github.com/alexinslc/depot/actions/workflows/lint.yml)
 [![Security](https://github.com/alexinslc/depot/actions/workflows/security.yml/badge.svg)](https://github.com/alexinslc/depot/actions/workflows/security.yml)
+[![Docker Build](https://github.com/alexinslc/depot/actions/workflows/docker.yml/badge.svg)](https://github.com/alexinslc/depot/actions/workflows/docker.yml)
 
 * This is my repo for the `depot` application from [Agile Web Development with Rails 7](https://pragprog.com/titles/rails7/agile-web-development-with-rails-7/) by Sam Ruby.
 

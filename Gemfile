@@ -36,6 +36,9 @@ gem "redis", "~> 5.4"
 # Use Solid Queue for background job processing [https://github.com/rails/solid_queue]
 gem "solid_queue"
 
+# Use Solid Cache for database-backed caching [https://github.com/rails/solid_cache]
+gem "solid_cache"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

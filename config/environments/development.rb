@@ -25,7 +25,8 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
   end
 
-  # Change to :null_store to avoid any caching.
+  # Use Solid Cache for database-backed caching in development
+  # For development, we'll use memory store to avoid extra database configuration
   config.cache_store = :memory_store
 
   # Store uploaded files on the local file system (see config/storage.yml for options).

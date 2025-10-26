@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  # Health check endpoints
+  get "health", to: "health#index"
+  get "health/ready", to: "health#ready"
+  get "health/live", to: "health#live"
+
   resource :session
   resources :passwords, param: :token
   root "store#index", as: "store_index"

@@ -57,6 +57,10 @@ USER 1000:1000
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
+  CMD curl -f http://localhost:3000/health || exit 1
+
 # Start server via Puma
 EXPOSE 3000
 CMD ["./bin/rails", "server", "-b", "0.0.0.0"]

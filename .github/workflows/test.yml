@@ -1,0 +1,52 @@
+name: Testing
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version: ['3.3.6']
+    
+    env:
+      RAILS_ENV: test
+      
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Ruby ${{ matrix.ruby-version }}
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true
+        
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libsqlite3-dev
+        
+    - name: Setup database
+      run: |
+        bin/rails db:prepare
+        
+    - name: Run tests
+      run: |
+        bin/rails test
+        
+    - name: Upload coverage reports
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results-ruby-${{ matrix.ruby-version }}
+        path: |
+          tmp/screenshots/
+          log/test.log
+        retention-days: 7

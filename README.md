@@ -17,5 +17,5 @@ Book Page: 105
 * Use `bin/rails test:models` to run the tests for the models. 
 * Use `bin/rails db:test:prepare` to prepare the database for testing. (usually done automatically)
 
-* Ruby version - 3.1.1
-* Rails version - 7.0.2.3
+* Ruby version - 3.3.6
+* Rails version - 7.2.2.1

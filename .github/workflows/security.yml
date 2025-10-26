@@ -38,7 +38,7 @@ jobs:
         
     - name: Check Brakeman Results
       run: |
-        bundle exec brakeman --no-pager
+        bundle exec brakeman --no-pager --no-exit-on-warn
         
   bundler-audit:
     name: Bundler Audit

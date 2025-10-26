@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_10_26_175704) do
+ActiveRecord::Schema[8.1].define(version: 2025_10_26_184106) do
   create_table "products", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.text "description"
@@ -18,6 +18,9 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_26_175704) do
     t.decimal "price", precision: 8, scale: 2
     t.string "title"
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_products_on_created_at"
+    t.index ["price"], name: "index_products_on_price"
+    t.index ["title"], name: "index_products_on_title"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -26,6 +29,8 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_26_175704) do
     t.datetime "updated_at", null: false
     t.string "user_agent"
     t.integer "user_id", null: false
+    t.index ["created_at"], name: "index_sessions_on_created_at"
+    t.index ["user_id", "created_at"], name: "index_sessions_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
@@ -34,6 +39,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_26_175704) do
     t.string "email_address", null: false
     t.string "password_digest", null: false
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_users_on_created_at"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 

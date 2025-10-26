@@ -8,6 +8,22 @@ default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  # Rails 8 SQLite optimizations
+  variables:
+    # Enable Write-Ahead Logging for better concurrency
+    journal_mode: WAL
+    # Synchronous mode for durability vs performance trade-off
+    synchronous: NORMAL
+    # Longer busy timeout for concurrent writes
+    busy_timeout: 5000
+    # Enable foreign keys
+    foreign_keys: true
+    # Cache size (negative = KB, positive = pages)
+    cache_size: -64000  # 64MB cache
+    # Memory-mapped I/O for better performance
+    mmap_size: 268435456  # 256MB
+    # Temp store in memory for better performance
+    temp_store: MEMORY
 
 development:
   <<: *default

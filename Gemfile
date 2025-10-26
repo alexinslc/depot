@@ -39,6 +39,9 @@ gem "solid_queue"
 # Use Solid Cache for database-backed caching [https://github.com/rails/solid_cache]
 gem "solid_cache"
 
+# Use Solid Cable for database-backed Action Cable [https://github.com/rails/solid_cable]
+gem "solid_cable"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

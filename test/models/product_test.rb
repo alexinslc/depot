@@ -1,7 +1,7 @@
 require "test_helper"
 
 class ProductTest < ActiveSupport::TestCase
-  fixtures :products 
+  fixtures :products
 
   test "product attributes must not be empty" do
     product = Product.new
@@ -19,13 +19,13 @@ class ProductTest < ActiveSupport::TestCase
     product.price = -1
     assert product.invalid?
     assert_equal ["must be greater than or equal to 0.01"],
-      product.errors[:price]
-    
+                 product.errors[:price]
+
     product.price = 0
     assert product.invalid?
     assert_equal ["must be greater than or equal to 0.01"],
-      product.errors[:price]
-    
+                 product.errors[:price]
+
     product.price = 1
     assert product.valid?
   end
@@ -38,18 +38,17 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "image url" do
-    ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
-             http://a.b.c/x/y/z/fred.gif }
-    bad = %w{ fred.doc fred.gif/more fred.gif.more }
+    ok = ["fred.gif", "fred.jpg", "fred.png", "FRED.JPG", "FRED.Jpg", "http://a.b.c/x/y/z/fred.gif"]
+    bad = ["fred.doc", "fred.gif/more", "fred.gif.more"]
 
     ok.each do |image_url|
-      assert new_product(image_url).valid?, 
-              "#{image_url} must be valid"
+      assert new_product(image_url).valid?,
+             "#{image_url} must be valid"
     end
 
     bad.each do |image_url|
-      assert new_product(image_url).invalid?, 
-              "#{image_url} must be invalid"
+      assert new_product(image_url).invalid?,
+             "#{image_url} must be invalid"
     end
   end
 
@@ -59,8 +58,7 @@ class ProductTest < ActiveSupport::TestCase
                           price: 1,
                           image_url: "fred.gif")
     assert product.invalid?
-    assert_equal [I18n.translate('errors.messages.taken')],
-                  product.errors[:title]
+    assert_equal [I18n.t("errors.messages.taken")],
+                 product.errors[:title]
   end
-
 end

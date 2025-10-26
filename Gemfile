@@ -33,6 +33,9 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 5.4"
 
+# Use Solid Queue for background job processing [https://github.com/rails/solid_queue]
+gem "solid_queue"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

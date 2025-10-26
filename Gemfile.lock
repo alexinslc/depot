@@ -87,6 +87,9 @@ GEM
     brakeman (7.1.0)
       racc
     builder (3.3.0)
+    bullet (8.1.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     bundler-audit (0.9.2)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
@@ -145,6 +148,7 @@ GEM
       net-smtp
     marcel (1.1.0)
     matrix (0.4.3)
+    memory_profiler (1.1.0)
     mini_mime (1.1.5)
     minitest (5.26.0)
     msgpack (1.8.0)
@@ -181,6 +185,8 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.2.3)
+    rack-mini-profiler (4.0.1)
+      rack (>= 1.2.0)
     rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -310,6 +316,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.1.0)
+    uniform_notifier (1.18.0)
     uri (1.0.4)
     useragent (0.16.11)
     web-console (4.2.1)
@@ -340,12 +347,15 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   brakeman
+  bullet
   bundler-audit
   capybara
   debug
   importmap-rails
   jbuilder
+  memory_profiler
   puma (~> 6.6)
+  rack-mini-profiler
   rails (~> 8.1.0)
   redis (~> 5.4)
   rubocop

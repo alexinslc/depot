@@ -203,7 +203,7 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-    puma (6.6.1)
+    puma (7.1.0)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
@@ -389,7 +389,7 @@ DEPENDENCIES
   jbuilder
   kamal
   memory_profiler
-  puma (~> 6.6)
+  puma (~> 7.1)
   rack-mini-profiler
   rails (~> 8.1.0)
   redis (~> 5.4)

@@ -73,7 +73,8 @@ Rails.application.configure do
 
   # Use Solid Queue for background jobs in development
   config.active_job.queue_adapter = :solid_queue
-  config.solid_queue.connects_to = { database: { writing: :queue } }
+  # Only connect to queue database when not precompiling assets
+  config.solid_queue.connects_to = { database: { writing: :queue } } unless ENV['SECRET_KEY_BASE_DUMMY']
 
   # Enable rack-mini-profiler for performance monitoring
   # Visit any page and add ?pp=help to see profiler options

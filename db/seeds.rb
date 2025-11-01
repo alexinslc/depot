@@ -22,13 +22,15 @@ Rails.logger.debug "  Creating products..."
 products_data = [
   {
     title: "Docker for Rails Developers",
-    description: %(<p><em>Build, Ship, and Run Your Applications Everywhere</em> Docker does for DevOps what Rails did for web development.</p>),
+    description: %(<p><em>Build, Ship, and Run Your Applications Everywhere</em> Docker does for DevOps what Rails
+      did for web development.</p>),
     image_url: "ridocker.jpg",
     price: 19.95
   },
   {
     title: "Design and Build Great Web APIs",
-    description: %(<p><em>Robust, Reliable, and Resilient</em> APIs are transforming the business world at an increasing pace.</p>),
+    description: %(<p><em>Robust, Reliable, and Resilient</em> APIs are transforming the business world at an
+      increasing pace.</p>),
     image_url: "maapis.jpg",
     price: 24.95
   },
@@ -40,13 +42,15 @@ products_data = [
   },
   {
     title: "Programming Phoenix",
-    description: %(<p><em>Productive, Reliable, Fast</em> Phoenix creator Chris McCord walks you through building fast applications.</p>),
+    description: %(<p><em>Productive, Reliable, Fast</em> Phoenix creator Chris McCord walks you through building fast
+      applications.</p>),
     image_url: "phoenix.jpg",
     price: 35.00
   },
   {
     title: "Agile Web Development with Rails 8",
-    description: %(<p><em>Learn Rails the Right Way</em> Rails 8 completely redefines what it means to produce fantastic user experiences.</p>),
+    description: %(<p><em>Learn Rails the Right Way</em> Rails 8 completely redefines what it means to produce fantastic
+      user experiences.</p>),
     image_url: "rails8.jpg",
     price: 45.00
   }

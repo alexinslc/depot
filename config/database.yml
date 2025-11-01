@@ -28,10 +28,6 @@ default: &default
 development:
   <<: *default
   database: db/development.sqlite3
-  queue:
-    <<: *default
-    database: db/queue_development.sqlite3
-    migrations_paths: db/queue_migrate
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -39,26 +35,22 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
-  queue:
-    <<: *default
-    database: db/queue_test.sqlite3
-    migrations_paths: db/queue_migrate
 
 production:
   <<: *default
   database: db/production.sqlite3
-  queue:
-    <<: *default
-    database: db/queue_production.sqlite3
-    migrations_paths: db/queue_migrate
 
-# Solid Cache database configuration
+# Additional databases for Solid Queue, Solid Cache, and Solid Cable
+queue:
+  <<: *default
+  database: db/queue_production.sqlite3
+  migrations_paths: db/queue_migrate
+
 cache:
   <<: *default
   database: db/cache_production.sqlite3
   migrations_paths: db/cache_migrate
 
-# Solid Cable database configuration
 cable:
   <<: *default
   database: db/cable_production.sqlite3

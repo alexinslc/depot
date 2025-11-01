@@ -43,15 +43,15 @@ production:
 # Additional databases for Solid Queue, Solid Cache, and Solid Cable
 queue:
   <<: *default
-  database: db/queue_production.sqlite3
+  database: db/queue_<%= Rails.env %>.sqlite3
   migrations_paths: db/queue_migrate
 
 cache:
   <<: *default
-  database: db/cache_production.sqlite3
+  database: db/cache_<%= Rails.env %>.sqlite3
   migrations_paths: db/cache_migrate
 
 cable:
   <<: *default
-  database: db/cable_production.sqlite3
+  database: db/cable_<%= Rails.env %>.sqlite3
   migrations_paths: db/cable_migrate

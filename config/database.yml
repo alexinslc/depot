@@ -26,8 +26,9 @@ default: &default
     temp_store: MEMORY
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  primary:
+    <<: *default
+    database: db/development.sqlite3
   queue:
     <<: *default
     database: db/queue_development.sqlite3
@@ -37,29 +38,27 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+  primary:
+    <<: *default
+    database: db/test.sqlite3
   queue:
     <<: *default
     database: db/queue_test.sqlite3
     migrations_paths: db/queue_migrate
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  primary:
+    <<: *default
+    database: db/production.sqlite3
   queue:
     <<: *default
     database: db/queue_production.sqlite3
     migrations_paths: db/queue_migrate
-
-# Solid Cache database configuration
-cache:
-  <<: *default
-  database: db/cache_production.sqlite3
-  migrations_paths: db/cache_migrate
-
-# Solid Cable database configuration
-cable:
-  <<: *default
-  database: db/cable_production.sqlite3
-  migrations_paths: db/cable_migrate
+  cache:
+    <<: *default
+    database: db/cache_production.sqlite3
+    migrations_paths: db/cache_migrate
+  cable:
+    <<: *default
+    database: db/cable_production.sqlite3
+    migrations_paths: db/cable_migrate

@@ -39,11 +39,8 @@ COPY . .
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
-# Prepare databases before asset precompilation
-# This ensures database files exist even though we won't use them during precompilation
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:prepare
-
 # Precompile assets
+# SECRET_KEY_BASE_DUMMY=1 signals to skip database connections in environment configs
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 # Final stage for app image

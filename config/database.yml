@@ -26,32 +26,55 @@ default: &default
     temp_store: MEMORY
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  primary:
+    <<: *default
+    database: db/development.sqlite3
+  queue:
+    <<: *default
+    database: db/queue_development.sqlite3
+    migrations_paths: db/queue_migrate
+  cache:
+    <<: *default
+    database: db/cache_development.sqlite3
+    migrations_paths: db/cache_migrate
+  cable:
+    <<: *default
+    database: db/cable_development.sqlite3
+    migrations_paths: db/cable_migrate
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+  primary:
+    <<: *default
+    database: db/test.sqlite3
+  queue:
+    <<: *default
+    database: db/queue_test.sqlite3
+    migrations_paths: db/queue_migrate
+  cache:
+    <<: *default
+    database: db/cache_test.sqlite3
+    migrations_paths: db/cache_migrate
+  cable:
+    <<: *default
+    database: db/cable_test.sqlite3
+    migrations_paths: db/cable_migrate
 
 production:
-  <<: *default
-  database: db/production.sqlite3
-
-# Additional databases for Solid Queue, Solid Cache, and Solid Cable
-queue:
-  <<: *default
-  database: db/queue_<%= Rails.env %>.sqlite3
-  migrations_paths: db/queue_migrate
-
-cache:
-  <<: *default
-  database: db/cache_<%= Rails.env %>.sqlite3
-  migrations_paths: db/cache_migrate
-
-cable:
-  <<: *default
-  database: db/cable_<%= Rails.env %>.sqlite3
-  migrations_paths: db/cable_migrate
+  primary:
+    <<: *default
+    database: db/production.sqlite3
+  queue:
+    <<: *default
+    database: db/queue_production.sqlite3
+    migrations_paths: db/queue_migrate
+  cache:
+    <<: *default
+    database: db/cache_production.sqlite3
+    migrations_paths: db/cache_migrate
+  cable:
+    <<: *default
+    database: db/cable_production.sqlite3
+    migrations_paths: db/cable_migrate

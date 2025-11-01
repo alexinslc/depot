@@ -22,8 +22,8 @@ Rails.logger.debug "  Creating products..."
 products_data = [
   {
     title: "Docker for Rails Developers",
-    description: %(<p><em>Build, Ship, and Run Your Applications Everywhere</em> Docker does for DevOps what Rails did for web
-      development.</p>),
+    description: %(<p><em>Build, Ship, and Run Your Applications Everywhere</em> Docker does for DevOps what Rails
+      did for web development.</p>),
     image_url: "ridocker.jpg",
     price: 19.95
   },

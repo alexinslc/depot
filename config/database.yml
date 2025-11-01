@@ -58,7 +58,3 @@ production:
     <<: *default
     database: db/cache_production.sqlite3
     migrations_paths: db/cache_migrate
-  cable:
-    <<: *default
-    database: db/cable_production.sqlite3
-    migrations_paths: db/cable_migrate

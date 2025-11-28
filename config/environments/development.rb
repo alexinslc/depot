@@ -78,5 +78,5 @@ Rails.application.configure do
 
   # Enable rack-mini-profiler for performance monitoring
   # Visit any page and add ?pp=help to see profiler options
-  config.middleware.use Rack::MiniProfiler
+  # config.middleware.use Rack::MiniProfiler
 end

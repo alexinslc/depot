@@ -1,0 +1,161 @@
+.
+├── app
+│   ├── assets
+│   │   ├── builds
+│   │   ├── config
+│   │   ├── images
+│   │   ├── stylesheets
+│   │   └── tailwind
+│   ├── channels
+│   │   └── application_cable
+│   ├── controllers
+│   │   ├── application_controller.rb
+│   │   ├── concerns
+│   │   ├── health_controller.rb
+│   │   ├── passwords_controller.rb
+│   │   ├── products_controller.rb
+│   │   ├── sessions_controller.rb
+│   │   └── store_controller.rb
+│   ├── helpers
+│   │   ├── application_helper.rb
+│   │   ├── products_helper.rb
+│   │   └── store_helper.rb
+│   ├── javascript
+│   │   ├── application.js
+│   │   └── controllers
+│   ├── jobs
+│   │   └── application_job.rb
+│   ├── mailers
+│   │   ├── application_mailer.rb
+│   │   └── passwords_mailer.rb
+│   ├── models
+│   │   ├── application_record.rb
+│   │   ├── concerns
+│   │   ├── current.rb
+│   │   ├── product.rb
+│   │   ├── session.rb
+│   │   └── user.rb
+│   └── views
+│       ├── layouts
+│       ├── passwords
+│       ├── passwords_mailer
+│       ├── products
+│       ├── sessions
+│       └── store
+├── bin
+│   ├── ci
+│   ├── dev
+│   ├── docker-entrypoint
+│   ├── importmap
+│   ├── jobs
+│   ├── rails
+│   ├── rake
+│   ├── setup
+│   └── validate
+├── CHANGELOG.md
+├── CODEOWNERS
+├── config
+│   ├── application.rb
+│   ├── boot.rb
+│   ├── cable.yml
+│   ├── cache.yml
+│   ├── ci.rb
+│   ├── credentials.yml.enc
+│   ├── database.yml
+│   ├── deploy.yml
+│   ├── environment.rb
+│   ├── environments
+│   │   ├── development.rb
+│   │   ├── production.rb
+│   │   └── test.rb
+│   ├── importmap.rb
+│   ├── initializers
+│   │   ├── assets.rb
+│   │   ├── bullet.rb
+│   │   ├── content_security_policy.rb
+│   │   ├── filter_parameter_logging.rb
+│   │   ├── inflections.rb
+│   │   ├── new_framework_defaults_8_1.rb
+│   │   └── permissions_policy.rb
+│   ├── locales
+│   │   └── en.yml
+│   ├── puma.rb
+│   ├── queue.yml
+│   ├── recurring.yml
+│   ├── routes.rb
+│   ├── storage.yml
+│   └── tailwind.config.js
+├── config.ru
+├── CONTRIBUTING.md
+├── db
+│   ├── cable_schema.rb
+│   ├── cache_schema.rb
+│   ├── migrate
+│   │   ├── 20220424035322_create_products.rb
+│   │   ├── 20251026163307_add_service_name_to_active_storage_blobs.active_storage.rb
+│   │   ├── 20251026163308_create_active_storage_variant_records.active_storage.rb
+│   │   ├── 20251026163309_remove_not_null_on_active_storage_blobs_checksum.active_storage.rb
+│   │   ├── 20251026175703_create_users.rb
+│   │   ├── 20251026175704_create_sessions.rb
+│   │   └── 20251026184106_add_indexes_to_tables.rb
+│   ├── queue_schema.rb
+│   ├── schema.rb
+│   └── seeds.rb
+├── DEPLOYMENT.md
+├── docker-compose.yml
+├── Dockerfile
+├── file_tree.txt
+├── Gemfile
+├── Gemfile.lock
+├── KAMAL.md
+├── lib
+│   ├── assets
+│   └── tasks
+├── MIGRATION_PLAN.md
+├── Procfile.dev
+├── PRODUCTION_CHECKLIST.md
+├── public
+│   ├── 400.html
+│   ├── 404.html
+│   ├── 406-unsupported-browser.html
+│   ├── 422.html
+│   ├── 500.html
+│   ├── apple-touch-icon.png
+│   ├── apple-touch-icon-precomposed.png
+│   ├── favicon.ico
+│   ├── icon.png
+│   ├── icon.svg
+│   └── robots.txt
+├── Rakefile
+├── README.md
+├── RETROSPECTIVE.md
+├── SECURITY.md
+├── storage
+├── test
+│   ├── application_system_test_case.rb
+│   ├── channels
+│   │   └── application_cable
+│   ├── controllers
+│   │   ├── passwords_controller_test.rb
+│   │   ├── products_controller_test.rb
+│   │   ├── sessions_controller_test.rb
+│   │   └── store_controller_test.rb
+│   ├── fixtures
+│   │   ├── files
+│   │   ├── products.yml
+│   │   └── users.yml
+│   ├── helpers
+│   ├── integration
+│   ├── mailers
+│   │   └── previews
+│   ├── models
+│   │   ├── product_test.rb
+│   │   └── user_test.rb
+│   ├── system
+│   │   └── products_test.rb
+│   ├── test_helper.rb
+│   └── test_helpers
+│       └── session_test_helper.rb
+└── TEST_REPORT.md
+
+51 directories, 108 files

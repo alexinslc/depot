@@ -11,4 +11,5 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.1].define(version: 0) do
+  # This schema intentionally contains no tables.
 end
